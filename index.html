@@ -324,34 +324,4 @@ function logout(){
 if(sessionStorage.getItem("sanketPortfolioAuth")==="1") enterSite();
 
 loginForm.addEventListener("submit",e=>{
-  e.preventDefault();
-  const u=document.getElementById("username").value.trim();
-  const p=document.getElementById("password").value;
-  if(u==="sanket" && p==="creator048"){loginError.textContent="";enterSite();}
-  else loginError.textContent="Incorrect demo username or password.";
-});
-guestBtn.addEventListener("click",enterSite);
-logoutBtn.addEventListener("click",logout);
-
-document.getElementById("contactForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const name=document.getElementById("name").value.trim();
-  const email=document.getElementById("email").value.trim();
-  const type=document.getElementById("type").value;
-  const subject=document.getElementById("subject").value.trim();
-  const message=document.getElementById("message").value.trim();
-  const body=`Hello Sanket Dongare,
-
-Name: ${name}
-Email: ${email}
-Enquiry: ${type}
-Subject: ${subject}
-
-Message:
-${message}`;
-  window.location.href=`mailto:sanket048rog@gmail.com?subject=${encodeURIComponent("[Portfolio Enquiry] "+subject)}&body=${encodeURIComponent(body)}`;
-  document.getElementById("formStatus").textContent="Opening your email app…";
-});
-</script>
-</body>
-</html>
+  e.preve
