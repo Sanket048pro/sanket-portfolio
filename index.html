@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090b">
+<meta name="description" content="Sanket Dongare — creator portfolio, collaborations, visual stories and contact.">
+<title>SANKET DONGARE | @_sanku_048__</title>
+<style>
+:root{
+  --bg:#07070a; --panel:#111116; --panel2:#16161d; --text:#f7f7fb; --muted:#a5a5b0;
+  --line:rgba(255,255,255,.10); --pink:#ff3d7f; --violet:#8b5cf6; --cyan:#22d3ee;
+  --shadow:0 24px 80px rgba(0,0,0,.42); --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:
+radial-gradient(circle at 10% 0%,rgba(255,61,127,.10),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(139,92,246,.10),transparent 28%),var(--bg);color:var(--text);line-height:1.6}
+body.locked{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+
+/* LOGIN */
+#loginScreen{
+  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;
+  background:
+  linear-gradient(rgba(7,7,10,.68),rgba(7,7,10,.92)),
+  url("assets/instagram-feed-1.png") center/cover fixed;
+  transition:opacity .45s,visibility .45s;
+}
+#loginScreen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.login-shell{width:min(440px,100%);padding:34px;border:1px solid var(--line);border-radius:30px;
+background:rgba(12,12,17,.84);backdrop-filter:blur(22px);box-shadow:var(--shadow)}
+.login-brand{text-align:center;margin-bottom:26px}
+.avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;margin:0 auto 15px;border:3px solid rgba(255,255,255,.8);
+box-shadow:0 0 0 7px rgba(255,61,127,.10),0 0 40px rgba(255,61,127,.25)}
+.login-brand h1{font-size:28px;letter-spacing:-1px}
+.login-brand p{color:var(--muted);font-size:13px}
+.login-label{font-size:12px;font-weight:800;color:#ddd;margin:14px 0 7px;display:block}
+.login-input{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:#09090d;color:#fff;outline:0}
+.login-input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,61,127,.10)}
+.login-submit,.guest-btn{width:100%;padding:14px;border-radius:14px;border:0;font-weight:800;margin-top:17px}
+.login-submit{color:#fff;background:linear-gradient(100deg,var(--pink),#ff6a4a,var(--violet));box-shadow:0 12px 35px rgba(255,61,127,.22)}
+.guest-btn{margin-top:10px;background:#1b1b23;color:#ddd;border:1px solid var(--line)}
+.login-error{min-height:20px;text-align:center;color:#ff7a9e;font-size:12px;margin-top:10px}
+.demo-note{font-size:11px;color:#777;text-align:center;margin-top:17px}
+.demo-note b{color:#bbb}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:15px 6%;
+display:flex;justify-content:space-between;align-items:center;background:rgba(7,7,10,.72);
+backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.logo{font-weight:950;letter-spacing:1px;font-size:20px}.logo span{color:var(--pink)}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:13px;color:#d0d0d8;transition:.25s}.nav-links a:hover{color:#fff}
+.logout{border:1px solid var(--line);background:#15151b;color:#eee;padding:8px 13px;border-radius:999px;font-size:12px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:130px 20px 80px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(5px);pointer-events:none}
+.orb.one{width:330px;height:330px;background:rgba(255,61,127,.16);left:-90px;top:15%}
+.orb.two{width:400px;height:400px;background:rgba(139,92,246,.13);right:-130px;bottom:5%}
+.hero-content{max-width:920px;position:relative;z-index:2}
+.hero-avatar{width:145px;height:145px;border-radius:50%;object-fit:cover;margin:0 auto 22px;border:4px solid #fff;
+box-shadow:0 0 0 8px rgba(255,61,127,.09),0 0 70px rgba(255,61,127,.25)}
+.eyebrow{display:inline-flex;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);
+color:#ff76a2;font-size:11px;font-weight:850;letter-spacing:2px}
+.hero h1{font-size:clamp(48px,9vw,96px);line-height:.95;letter-spacing:-5px;margin:18px 0 13px;font-weight:950}
+.gradient{background:linear-gradient(100deg,#fff,var(--pink),#ff9a5a,var(--violet));-webkit-background-clip:text;color:transparent}
+.handle{font-size:20px;color:#a7a7b1;margin-bottom:20px}
+.hero p{max-width:700px;margin:auto;color:#b8b8c2;font-size:16px}
+.cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:850;font-size:13px;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(100deg,var(--pink),#ff654e);color:#fff;box-shadow:0 12px 35px rgba(255,61,127,.20)}
+.secondary{border:1px solid var(--line);background:#14141a;color:#eee}
+.quick-stats{max-width:720px;margin:45px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.qs{padding:17px 10px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:18px}
+.qs b{font-size:21px;display:block}.qs span{font-size:11px;color:#858592}
+
+/* GENERAL */
+section{padding:100px 6%}
+.section-head{text-align:center;max-width:720px;margin:0 auto 48px}
+.section-head small{color:#ff6392;letter-spacing:3px;font-size:10px;font-weight:900;text-transform:uppercase}
+.section-head h2{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-2px;margin-top:8px}
+.section-head p{color:var(--muted);margin-top:12px}
+.dark-section{background:rgba(255,255,255,.018);border-top:1px solid rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.03)}
+
+/* ABOUT */
+.about-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.card h3{font-size:24px;margin-bottom:12px}.card p{color:#a9a9b4}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag{font-size:11px;padding:7px 11px;border-radius:999px;background:#1b1b23;border:1px solid var(--line);color:#d8d8df}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat-card{padding:22px;border-radius:18px;background:#101016;border:1px solid var(--line)}
+.stat-card b{font-size:28px;color:#ff5b8d}.stat-card span{display:block;color:#888894;font-size:12px}
+
+/* GALLERY */
+.gallery-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery-card{position:relative;min-height:390px;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#101016}
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.gallery-card:hover img{transform:scale(1.04)}
+.gallery-overlay{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.88))}
+.gallery-overlay h3{font-size:20px}.gallery-overlay p{color:#c4c4cc;font-size:12px}
+
+/* POSTS */
+.post-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.post{aspect-ratio:1/1.15;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#111;position:relative}
+.post img{width:100%;height:100%;object-fit:cover;transition:.35s}.post:hover img{transform:scale(1.05)}
+.post-label{position:absolute;left:10px;bottom:10px;padding:6px 9px;border-radius:999px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);font-size:10px}
+
+/* WORLD */
+.world-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.world-card{padding:30px;border:1px solid var(--line);border-radius:22px;background:#101016}
+.world-icon{font-size:28px;margin-bottom:16px}.world-card h3{margin-bottom:8px}.world-card p{color:#9999a5;font-size:14px}
+
+/* CONTACT */
+.contact-wrap{max-width:920px;margin:auto}
+.contact-form{padding:30px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(145deg,#14141a,#0d0d12);box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}
+.form-group label{display:block;font-size:11px;font-weight:850;color:#ddd;margin-bottom:7px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:13px 14px;border-radius:13px;border:1px solid #2b2b34;background:#08080c;color:#fff;outline:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,61,127,.08)}
+.form-group textarea{min-height:140px;resize:vertical}
+.form-status{text-align:center;min-height:22px;margin-top:12px;color:#8be7b4;font-size:12px}
+
+/* FOOTER */
+footer{padding:35px 20px;text-align:center;border-top:1px solid var(--line);color:#777;font-size:12px}
+footer strong{color:#ff5b8d}
+.socials{display:flex;justify-content:center;gap:10px;margin:15px 0}.socials a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:#ccc}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{gap:12px}.nav-links a{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr}.post-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr}.world-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  nav{padding:13px 4%}.logo{font-size:17px}
+  .hero h1{letter-spacing:-3px}.quick-stats{grid-template-columns:repeat(2,1fr)}
+  section{padding:75px 5%}.gallery-grid{grid-template-columns:1fr}.gallery-card{min-height:440px}
+  .post-grid{grid-template-columns:repeat(2,1fr);gap:10px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}
+  .login-shell{padding:25px}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- LOGIN PAGE -->
+<div id="loginScreen">
+  <div class="login-shell">
+    <div class="login-brand">
+      <img class="avatar" src="assets/profile.jpg" alt="Sanket Dongare">
+      <h1>Welcome to SANKET.</h1>
+      <p>Creator Portfolio & Collaboration Studio</p>
+    </div>
+    <form id="loginForm">
+      <label class="login-label" for="username">Username</label>
+      <input class="login-input" id="username" autocomplete="username" placeholder="Enter username" required>
+      <label class="login-label" for="password">Password</label>
+      <input class="login-input" id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
+      <button class="login-submit" type="submit">🔐 Enter Portfolio</button>
+      <button class="guest-btn" type="button" id="guestBtn">Continue as Guest</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+    <p class="demo-note">Demo login: <b>sanket</b> / <b>creator048</b><br>For a real production login, connect this UI to a secure backend.</p>
+  </div>
+</div>
+
+<nav>
+  <a class="logo" href="#home">SANKET<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#showcase">Showcase</a></li>
+    <li><a href="#world">My World</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button class="logout" id="logoutBtn">Logout</button></li>
+  </ul>
+</nav>
+
+<main id="site">
+<section class="hero" id="home">
+  <div class="orb one"></div><div class="orb two"></div>
+  <div class="hero-content">
+    <img class="hero-avatar" src="assets/profile.jpg" alt="Sanket Dongare profile">
+    <span class="eyebrow">SOCIAL MEDIA CREATOR • MUSIC • TRAVEL • VISUALS</span>
+    <h1>SANKET <span class="gradient">DONGARE</span></h1>
+    <div class="handle">@_sanku_048__</div>
+    <p>I turn everyday places, journeys, culture and personal moments into visual stories. This is my creator space for collaborations, events, product features and new ideas.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.instagram.com/_sanku_048__/" target="_blank" rel="noopener">📸 Instagram</a>
+      <a class="btn secondary" href="#contact">🤝 Collaborate</a>
+    </div>
+    <div class="quick-stats">
+      <div class="qs"><b>20</b><span>Posts</span></div>
+      <div class="qs"><b>964</b><span>Followers</span></div>
+      <div class="qs"><b>255</b><span>Following</span></div>
+      <div class="qs"><b>5.7K</b><span>30-day views</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="about">
+  <div class="section-head">
+    <small>About the Creator</small><h2>More than a profile.</h2>
+    <p>A personal portfolio built around the visual style and content shown in the supplied Instagram screenshots.</p>
+  </div>
+  <div class="about-grid">
+    <article class="card">
+      <h3>My Creative Direction</h3>
+      <p>I focus on cinematic moments, travel and nature, spiritual places, lifestyle portraits, adventure and simple stories that feel personal. The goal is clean visuals with a real creator personality behind them.</p>
+      <div class="tags">
+        <span class="tag">Photography</span><span class="tag">Videography</span><span class="tag">AI Creator</span>
+        <span class="tag">Travel</span><span class="tag">Lifestyle</span><span class="tag">Events</span><span class="tag">Brand Collabs</span>
+      </div>
+    </article>
+    <article class="card">
+      <h3>Creator Snapshot</h3>
+      <div class="stat-grid">
+        <div class="stat-card"><b>01</b><span>Creator identity</span></div>
+        <div class="stat-card"><b>IG</b><span>Primary platform</span></div>
+        <div class="stat-card"><b>∞</b><span>Creative ideas</span></div>
+        <div class="stat-card"><b>100%</b><span>Personal touch</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="section-head">
+    <small>Visual Showcase</small><h2>Instagram, reimagined.</h2>
+    <p>Your supplied screenshots are turned into a polished portfolio gallery instead of plain placeholder cards.</p>
+  </div>
+  <div class="gallery-grid">
+    <article class="gallery-card"><img src="assets/instagram-profile.png" alt="Instagram profile screenshot"><div class="gallery-overlay"><h3>Creator Profile</h3><p>Profile, bio, highlights and creator identity.</p></div></article>
+    <article class="gallery-card"><img src="assets/instagram-feed-1.png" alt="Instagram feed screenshot"><div class="gallery-overlay"><h3>Visual Stories</h3><p>Shiva, Buddha, architecture, travel and portraits.</p></div></article>
+    <article class="gallery-card"><img src="assets/instagram-feed-2.png" alt="Instagram feed screenshot"><div class="gallery-overlay"><h3>Recent Content</h3><p>Adventure, nature, lifestyle and inspirational posts.</p></div></article>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="section-head">
+    <small>Featured Content</small><h2>Selected frames.</h2>
+    <p>Individual visuals extracted from the uploaded feed screenshots for a more portfolio-like presentation.</p>
+  </div>
+  <div class="post-grid">
+    <article class="post"><img src="assets/post-shiva-meditation.jpg" alt="Shiva meditation"><span class="post-label">Spiritual • Shiva</span></article>
+    <article class="post"><img src="assets/post-shiva-view.jpg" alt="Shiva viewpoint"><span class="post-label">Travel • View</span></article>
+    <article class="post"><img src="assets/post-shiva-prayer.jpg" alt="Shiva prayer"><span class="post-label">Culture • Prayer</span></article>
+    <article class="post"><img src="assets/post-buddha.jpg" alt="Buddha statue"><span class="post-label">Peace • Buddha</span></article>
+    <article class="post"><img src="assets/post-architecture.jpg" alt="Architecture"><span class="post-label">Architecture</span></article>
+    <article class="post"><img src="assets/post-nature.jpg" alt="Nature"><span class="post-label">Nature</span></article>
+    <article class="post"><img src="assets/post-climbing.jpg" alt="Climbing"><span class="post-label">Adventure</span></article>
+    <article class="post"><img src="assets/post-portrait.jpg" alt="Portrait"><span class="post-label">Portrait</span></article>
+    <article class="post"><img src="assets/post-dream.jpg" alt="Dream poster"><span class="post-label">Dream • Motivation</span></article>
+    <article class="post"><img src="assets/post-greenfield.jpg" alt="Green field portrait"><span class="post-label">Outdoors</span></article>
+    <article class="post"><img src="assets/post-mazi-shala.jpg" alt="Mazi Shala artwork"><span class="post-label">Maharashtra • Culture</span></article>
+  </div>
+</section>
+
+<section id="world">
+  <div class="section-head">
+    <small>My World</small><h2>What I love creating.</h2>
+    <p>A flexible creative identity that can work with brands, events and community projects.</p>
+  </div>
+  <div class="world-grid">
+    <article class="world-card"><div class="world-icon">🏔️</div><h3>Travel & Exploration</h3><p>Destination stories, outdoor experiences, scenic reels and local discoveries.</p></article>
+    <article class="world-card"><div class="world-icon">🎥</div><h3>Content & Reels</h3><p>Short-form concepts, visual edits, lifestyle clips and creator-led campaigns.</p></article>
+    <article class="world-card"><div class="world-icon">🤝</div><h3>Brand Partnerships</h3><p>Authentic product features, event coverage and collaborations designed around real use.</p></article>
+</div>
+</section>
+
+<section id="contact" class="dark-section">
+  <div class="section-head">
+    <small>Let's Connect</small><h2>Build something together.</h2>
+    <p>For brand collaborations, events, product promotions or creator enquiries, send the details below.</p>
+  </div>
+  <div class="contact-wrap">
+    <form class="contact-form" id="contactForm">
+      <div class="form-grid">
+        <div class="form-group"><label for="name">YOUR NAME *</label><input id="name" required placeholder="Your full name"></div>
+        <div class="form-group"><label for="email">EMAIL *</label><input id="email" type="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label for="type">ENQUIRY TYPE</label><select id="type"><option>Brand Collaboration</option><option>Product Promotion</option><option>Event / Appearance</option><option>Photography / Videography</option><option>Other</option></select></div>
+        <div class="form-group"><label for="subject">SUBJECT *</label><input id="subject" required placeholder="Project / campaign name"></div>
+        <div class="form-group full"><label for="message">MESSAGE *</label><textarea id="message" required placeholder="Tell me about the collaboration, dates, deliverables and budget if applicable."></textarea></div>
+      </div>
+      <div class="cta"><button class="btn primary" type="submit">🚀 Send Enquiry</button></div>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="socials">
+    <a href="https://www.instagram.com/_sanku_048__/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:sanket048rog@gmail.com">Email</a>
+    <a href="#home">Back to top ↑</a>
+  </div>
+  © 2026 <strong>Sanket Dongare</strong> · @_sanku_048__ · Creator Portfolio
+</footer>
+
+<script>
+const loginScreen=document.getElementById("loginScreen");
+const loginForm=document.getElementById("loginForm");
+const loginError=document.getElementById("loginError");
+const guestBtn=document.getElementById("guestBtn");
+const logoutBtn=document.getElementById("logoutBtn");
+
+function enterSite(){
+  sessionStorage.setItem("sanketPortfolioAuth","1");
+  loginScreen.classList.add("hidden");
+  document.body.classList.remove("locked");
+}
+function logout(){
+  sessionStorage.removeItem("sanketPortfolioAuth");
+  loginScreen.classList.remove("hidden");
+  document.body.classList.add("locked");
+}
+if(sessionStorage.getItem("sanketPortfolioAuth")==="1") enterSite();
+
+loginForm.addEventListener("submit",e=>{
+  e.preventDefault();
+  const u=document.getElementById("username").value.trim();
+  const p=document.getElementById("password").value;
+  if(u==="sanket" && p==="creator048"){loginError.textContent="";enterSite();}
+  else loginError.textContent="Incorrect demo username or password.";
+});
+guestBtn.addEventListener("click",enterSite);
+logoutBtn.addEventListener("click",logout);
+
+document.getElementById("contactForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=document.getElementById("name").value.trim();
+  const email=document.getElementById("email").value.trim();
+  const type=document.getElementById("type").value;
+  const subject=document.getElementById("subject").value.trim();
+  const message=document.getElementById("message").value.trim();
+  const body=`Hello Sanket Dongare,
+
+Name: ${name}
+Email: ${email}
+Enquiry: ${type}
+Subject: ${subject}
+
+Message:
+${message}`;
+  window.location.href=`mailto:sanket048rog@gmail.com?subject=${encodeURIComponent("[Portfolio Enquiry] "+subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById("formStatus").textContent="Opening your email app…";
+});
+</script>
+</body>
+</html>
